@@ -1,0 +1,10 @@
+.main-header {
+  background-color: #8a2b06;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-header h1 {
+  margin: 0;
+}
