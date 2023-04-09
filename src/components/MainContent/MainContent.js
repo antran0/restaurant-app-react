@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MainContent.module.css";
 import Card from "../UI/Card";
+import Menu from "../Menu/Menu";
 
 const MainContent = (props) => {
   return (
@@ -15,6 +16,9 @@ const MainContent = (props) => {
           All our meals are cooked with high-quality ingredients, just-in-time
           and of course by experienced chefs!
         </p>
+      </Card>
+      <Card>
+        <Menu />
       </Card>
     </main>
   );
