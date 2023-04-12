@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import styles from "./Cart.module.css";
 import Backdrop from "../UI/Backdrop";
 import Card from "../UI/Card";
@@ -19,8 +20,18 @@ const Cart = (props) => {
   return (
     <Card>
       <h2 onClick={displayCartHandler}>Your Cart</h2>
-      {backdropDisplayed ? <Backdrop onClick={hideCartHandler} /> : ""}
-      {backdropDisplayed ? <CartItems /> : ""}
+      {backdropDisplayed
+        ? ReactDOM.createPortal(
+            <Backdrop onClick={hideCartHandler} />,
+            document.getElementsByTagName("body")[0]
+          )
+        : ""}
+      {backdropDisplayed
+        ? ReactDOM.createPortal(
+            <CartItems />,
+            document.getElementsByTagName("body")[0]
+          )
+        : ""}
     </Card>
   );
 };
