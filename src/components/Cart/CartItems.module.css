@@ -1,0 +1,16 @@
+.cart-items {
+  position: fixed;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  padding: 1rem;
+  color: black;
+  background-color: white;
+  z-index: 100;
+}
+
+.cart-items__summary {
+}
+
+.cart-items__footer {
+}
