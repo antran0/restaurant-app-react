@@ -8,7 +8,7 @@ const NavBar = (props) => {
     <nav className={`${styles["nav-bar"]}`}>
       <ul>
         <li>
-          <Card>Your Cart</Card>
+          <Cart />
         </li>
       </ul>
     </nav>
