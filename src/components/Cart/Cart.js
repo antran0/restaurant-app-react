@@ -13,7 +13,7 @@ const Cart = (props) => {
   };
 
   const hideCartHandler = () => {
-    console.log("Closing cart");
+    console.log("Closing Cart");
     setBackdropDisplayed(false);
   };
 
@@ -28,7 +28,7 @@ const Cart = (props) => {
         : ""}
       {backdropDisplayed
         ? ReactDOM.createPortal(
-            <CartItems />,
+            <CartItems onHideCart={hideCartHandler} />,
             document.getElementsByTagName("body")[0]
           )
         : ""}
