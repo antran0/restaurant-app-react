@@ -4,6 +4,18 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 
 const CartItems = (props) => {
+  const [items, setItems] = React.useState([
+    {
+      menuItem: {
+        id: Math.random(),
+        name: "Sushi",
+        description: "Finest fish and veggies",
+        price: 22.99,
+      },
+      quantity: 2,
+    },
+  ]);
+
   const totalAmount = 0;
 
   const orderHandler = (event) => {
@@ -13,10 +25,25 @@ const CartItems = (props) => {
 
   return (
     <Card className={`${styles["cart-items"]}`}>
-      <form
-        className={`${styles["cart-items__footer"]}`}
-        onSubmit={orderHandler}
-      >
+      <form onSubmit={orderHandler}>
+        <div>
+          {items.map((item) => (
+            <div key={item.menuItem.id}>
+              <div>
+                <h3>{item.menuItem.name}</h3>
+                <div>
+                  <div>{`$${item.menuItem.price.toFixed(2)}`}</div>
+                  <div>&times;{item.quantity}</div>
+                </div>
+                <div></div>
+              </div>
+              <div>
+                <Button type="button">-</Button>
+                <Button type="button">+</Button>
+              </div>
+            </div>
+          ))}
+        </div>
         <div>
           <h3>Total Amount</h3>
           {`$${(Math.round(totalAmount * 100) / 100).toFixed(2)}`}
