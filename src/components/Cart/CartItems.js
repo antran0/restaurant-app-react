@@ -16,7 +16,9 @@ const CartItems = (props) => {
     },
   ]);
 
-  const totalAmount = 0;
+  const totalAmount = items.reduce((sum, currItem) => {
+    return sum + currItem.menuItem.price * currItem.quantity;
+  }, 0);
 
   const orderHandler = (event) => {
     event.preventDefault();
