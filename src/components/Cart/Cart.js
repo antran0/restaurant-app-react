@@ -23,13 +23,13 @@ const Cart = (props) => {
       {backdropDisplayed
         ? ReactDOM.createPortal(
             <Backdrop onClick={hideCartHandler} />,
-            document.getElementsByTagName("body")[0]
+            document.body
           )
         : ""}
       {backdropDisplayed
         ? ReactDOM.createPortal(
             <CartItems onHideCart={hideCartHandler} />,
-            document.getElementsByTagName("body")[0]
+            document.body
           )
         : ""}
     </Card>
