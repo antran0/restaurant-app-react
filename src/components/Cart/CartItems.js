@@ -14,11 +14,28 @@ const CartItems = (props) => {
       },
       quantity: 2,
     },
+    {
+      menuItem: {
+        id: Math.random(),
+        name: "Barbecue Burger",
+        description: "American, raw, meaty",
+        price: 12.99,
+      },
+      quantity: 3,
+    },
   ]);
 
   const totalAmount = items.reduce((sum, currItem) => {
     return sum + currItem.menuItem.price * currItem.quantity;
   }, 0);
+
+  const incrementItemHandler = (index) => {
+    items[index].quantity++;
+    console.log(
+      `Adding x1 "${items[index].menuItem.name}." Total quantity: ${items[index].quantity}`
+    );
+    setItems([...items]);
+  };
 
   const orderHandler = (event) => {
     event.preventDefault();
@@ -29,7 +46,7 @@ const CartItems = (props) => {
     <Card className={`${styles["cart-items"]}`}>
       <form onSubmit={orderHandler}>
         <div>
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div key={item.menuItem.id}>
               <div>
                 <h3>{item.menuItem.name}</h3>
@@ -40,7 +57,12 @@ const CartItems = (props) => {
               </div>
               <div>
                 <Button type="button">-</Button>
-                <Button type="button">+</Button>
+                <Button
+                  type="button"
+                  onClick={(event) => incrementItemHandler(index)}
+                >
+                  +
+                </Button>
               </div>
             </div>
           ))}
