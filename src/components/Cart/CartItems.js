@@ -29,6 +29,20 @@ const CartItems = (props) => {
     return sum + currItem.menuItem.price * currItem.quantity;
   }, 0);
 
+  const decrementItemHandler = (index) => {
+    if (items[index].quantity === 1) {
+      console.log(`Removing item "${items[index].menuItem.name}" from cart.`);
+      items.splice(index, 1);
+    } else {
+      items[index].quantity--;
+      console.log(
+        `Removing x1 "${items[index].menuItem.name}." Total: quantity: ${items[index].quantity}`
+      );
+    }
+
+    setItems([...items]);
+  };
+
   const incrementItemHandler = (index) => {
     items[index].quantity++;
     console.log(
@@ -56,7 +70,14 @@ const CartItems = (props) => {
                 </div>
               </div>
               <div>
-                <Button type="button">-</Button>
+                <Button
+                  type="button"
+                  onClick={(event) => {
+                    decrementItemHandler(index);
+                  }}
+                >
+                  -
+                </Button>
                 <Button
                   type="button"
                   onClick={(event) => incrementItemHandler(index)}
