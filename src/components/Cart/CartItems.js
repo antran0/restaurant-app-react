@@ -37,7 +37,6 @@ const CartItems = (props) => {
                   <div>{`$${item.menuItem.price.toFixed(2)}`}</div>
                   <div>&times;{item.quantity}</div>
                 </div>
-                <div></div>
               </div>
               <div>
                 <Button type="button">-</Button>
