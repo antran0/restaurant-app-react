@@ -8,7 +8,9 @@ const MainHeader = (props) => {
       <h1>ReactMeals</h1>
       <NavBar
         cartItems={props.cartItems}
-        setCartItems={props.setCartItems}
+        onRemoveFromCart={(menuItem, quantity) =>
+          props.onRemoveFromCart(menuItem, quantity)
+        }
         onAddToCart={(menuItem, quantity) =>
           props.onAddToCart(menuItem, quantity)
         }

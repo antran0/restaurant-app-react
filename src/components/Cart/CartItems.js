@@ -5,24 +5,13 @@ import Button from "../UI/Button";
 
 const CartItems = (props) => {
   const items = props.cartItems;
-  const setItems = props.setCartItems;
 
   const totalAmount = items.reduce((sum, currItem) => {
     return sum + currItem.menuItem.price * currItem.quantity;
   }, 0);
 
   const decrementItemHandler = (index) => {
-    if (items[index].quantity === 1) {
-      console.log(`Removing item "${items[index].menuItem.name}" from cart.`);
-      items.splice(index, 1);
-    } else {
-      items[index].quantity--;
-      console.log(
-        `Removing x1 "${items[index].menuItem.name}." Total: quantity: ${items[index].quantity}`
-      );
-    }
-
-    setItems([...items]);
+    props.onRemoveFromCart(items[index].menuItem, 1);
   };
 
   const incrementItemHandler = (index) => {

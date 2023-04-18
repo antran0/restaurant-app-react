@@ -30,7 +30,9 @@ const Cart = (props) => {
         ? ReactDOM.createPortal(
             <CartItems
               cartItems={props.cartItems}
-              setCartItems={props.setCartItems}
+              onRemoveFromCart={(menuItem, quantity) =>
+                props.onRemoveFromCart(menuItem, quantity)
+              }
               onAddToCart={(menuItem, quantity) =>
                 props.onAddToCart(menuItem, quantity)
               }

@@ -44,6 +44,30 @@ const DUMMY_CART = [
 function App() {
   const [cartItems, setCartItems] = React.useState(DUMMY_CART);
 
+  const removeFromCartHandler = (menuItem, quantity) => {
+    const index = cartItems
+      .map((cartItem) => cartItem.menuItem.id)
+      .indexOf(menuItem.id);
+
+    if (index === -1) {
+      console.log(`Error: item ${menuItem.name} does not exist in cart.`);
+    } else if (quantity > cartItems[index].quantity) {
+      console.log(
+        `Error: cannot remove x${quantity} of ${menuItem.name} because there is only x${cartItems[index].quantity} in the cart.`
+      );
+    } else if (quantity === cartItems[index].quantity) {
+      console.log(`Removing item "${menuItem.name}" from cart.`);
+      cartItems.splice(index, 1);
+      setCartItems([...cartItems]);
+    } else {
+      cartItems[index].quantity -= quantity;
+      console.log(
+        `Removing x${quantity} "${menuItem.name}." Total quantity: ${cartItems[index].quantity}`
+      );
+      setCartItems([...cartItems]);
+    }
+  };
+
   const addToCartHandler = (menuItem, quantity) => {
     const index = cartItems
       .map((cartItem) => cartItem.menuItem.id)
@@ -65,7 +89,7 @@ function App() {
     <React.Fragment>
       <MainHeader
         cartItems={cartItems}
-        setCartItems={setCartItems}
+        onRemoveFromCart={removeFromCartHandler}
         onAddToCart={addToCartHandler}
       />
       <MainContent />
