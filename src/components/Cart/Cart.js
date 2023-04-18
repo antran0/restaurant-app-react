@@ -18,8 +18,16 @@ const Cart = (props) => {
   };
 
   return (
-    <Card>
-      <h2 onClick={displayCartHandler}>Your Cart</h2>
+    <React.Fragment>
+      <Card className={`${styles["cart"]}`} onClick={displayCartHandler}>
+        <h2>Your Cart</h2>
+        <Card className={`${styles["cart__quantity"]}`}>
+          {props.cartItems.reduce(
+            (sum, cartItem) => sum + cartItem.quantity,
+            0
+          )}
+        </Card>
+      </Card>
       {backdropDisplayed
         ? ReactDOM.createPortal(
             <Backdrop onClick={hideCartHandler} />,
@@ -41,7 +49,7 @@ const Cart = (props) => {
             document.body
           )
         : ""}
-    </Card>
+    </React.Fragment>
   );
 };
 
