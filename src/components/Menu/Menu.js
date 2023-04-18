@@ -35,12 +35,15 @@ const Menu = (props) => {
   return (
     <form>
       <ul className={`${styles["menu"]}`}>
-        {menuItems.map((item) => (
+        {menuItems.map((item, index) => (
           <React.Fragment key={item.id}>
             <MenuItem
               name={item.name}
               description={item.description}
               price={item.price}
+              menuItems={menuItems}
+              index={index}
+              onAddToCart={props.onAddToCart}
             />
             <hr />
           </React.Fragment>

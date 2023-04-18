@@ -3,6 +3,12 @@ import styles from "./MenuItem.module.css";
 import Button from "../UI/Button";
 
 const MenuItem = (props) => {
+  const amountRef = React.useRef();
+
+  const addToCartHandler = () => {
+    props.onAddToCart(props.menuItems[props.index], amountRef.current.value);
+  };
+
   return (
     <li className={`${styles["menu-item"]}`}>
       <hgroup>
@@ -12,8 +18,8 @@ const MenuItem = (props) => {
       </hgroup>
       <div>
         <label>Amount</label>
-        <input type="number" min={1} max={5} defaultValue="1" />
-        <Button>&#43;Add</Button>
+        <input type="number" min={1} max={5} defaultValue="1" ref={amountRef} />
+        <Button onClick={addToCartHandler}>&#43;Add</Button>
       </div>
     </li>
   );

@@ -92,7 +92,7 @@ function App() {
         onRemoveFromCart={removeFromCartHandler}
         onAddToCart={addToCartHandler}
       />
-      <MainContent />
+      <MainContent onAddToCart={addToCartHandler} />
     </React.Fragment>
   );
 }
