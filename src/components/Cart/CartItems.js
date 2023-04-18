@@ -26,11 +26,7 @@ const CartItems = (props) => {
   };
 
   const incrementItemHandler = (index) => {
-    items[index].quantity++;
-    console.log(
-      `Adding x1 "${items[index].menuItem.name}." Total quantity: ${items[index].quantity}`
-    );
-    setItems([...items]);
+    props.onAddToCart(items[index].menuItem, 1);
   };
 
   const orderHandler = (event) => {

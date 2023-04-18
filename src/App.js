@@ -44,9 +44,30 @@ const DUMMY_CART = [
 function App() {
   const [cartItems, setCartItems] = React.useState(DUMMY_CART);
 
+  const addToCartHandler = (menuItem, quantity) => {
+    const index = cartItems
+      .map((cartItem) => cartItem.menuItem.id)
+      .indexOf(menuItem.id);
+
+    if (index === -1) {
+      console.log(`Adding new item(s): ${menuItem.name} x${quantity}`);
+      setCartItems([...cartItems, { menuItem: menuItem, quantity: quantity }]);
+    } else {
+      cartItems[index].quantity += quantity;
+      console.log(
+        `Adding x${quantity} more "${menuItem.name}." Total quantity: ${cartItems[index].quantity}`
+      );
+      setCartItems([...cartItems]);
+    }
+  };
+
   return (
     <React.Fragment>
-      <MainHeader cartItems={cartItems} setCartItems={setCartItems} />
+      <MainHeader
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        onAddToCart={addToCartHandler}
+      />
       <MainContent />
     </React.Fragment>
   );

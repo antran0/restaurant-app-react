@@ -31,6 +31,9 @@ const Cart = (props) => {
             <CartItems
               cartItems={props.cartItems}
               setCartItems={props.setCartItems}
+              onAddToCart={(menuItem, quantity) =>
+                props.onAddToCart(menuItem, quantity)
+              }
               onHideCart={hideCartHandler}
             />,
             document.body
