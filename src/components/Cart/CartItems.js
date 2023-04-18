@@ -4,26 +4,8 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 
 const CartItems = (props) => {
-  const [items, setItems] = React.useState([
-    {
-      menuItem: {
-        id: Math.random(),
-        name: "Sushi",
-        description: "Finest fish and veggies",
-        price: 22.99,
-      },
-      quantity: 2,
-    },
-    {
-      menuItem: {
-        id: Math.random(),
-        name: "Barbecue Burger",
-        description: "American, raw, meaty",
-        price: 12.99,
-      },
-      quantity: 3,
-    },
-  ]);
+  const items = props.cartItems;
+  const setItems = props.setCartItems;
 
   const totalAmount = items.reduce((sum, currItem) => {
     return sum + currItem.menuItem.price * currItem.quantity;

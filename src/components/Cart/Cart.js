@@ -28,7 +28,11 @@ const Cart = (props) => {
         : ""}
       {backdropDisplayed
         ? ReactDOM.createPortal(
-            <CartItems onHideCart={hideCartHandler} />,
+            <CartItems
+              cartItems={props.cartItems}
+              setCartItems={props.setCartItems}
+              onHideCart={hideCartHandler}
+            />,
             document.body
           )
         : ""}

@@ -6,7 +6,7 @@ const MainHeader = (props) => {
   return (
     <header className={`${styles["main-header"]}`}>
       <h1>ReactMeals</h1>
-      <NavBar />
+      <NavBar cartItems={props.cartItems} setCartItems={props.setCartItems} />
     </header>
   );
 };
