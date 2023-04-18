@@ -45,6 +45,7 @@ function App() {
   const [cartItems, setCartItems] = React.useState(DUMMY_CART);
 
   const removeFromCartHandler = (menuItem, quantity) => {
+    quantity = +quantity;
     const index = cartItems
       .map((cartItem) => cartItem.menuItem.id)
       .indexOf(menuItem.id);
@@ -69,6 +70,7 @@ function App() {
   };
 
   const addToCartHandler = (menuItem, quantity) => {
+    quantity = +quantity;
     const index = cartItems
       .map((cartItem) => cartItem.menuItem.id)
       .indexOf(menuItem.id);
