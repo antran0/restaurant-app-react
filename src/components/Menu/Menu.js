@@ -30,19 +30,24 @@ const DUMMY_MENU_ITEMS = [
 ];
 
 const Menu = (props) => {
-  const menuItems = DUMMY_MENU_ITEMS.map((item) => {
-    return (
-      <React.Fragment key={item.id}>
-        <MenuItem
-          name={item.name}
-          description={item.description}
-          price={item.price.toFixed(2)}
-        />
-        <hr />
-      </React.Fragment>
-    );
-  });
-  return <ul className={`${styles["menu"]}`}>{menuItems}</ul>;
+  const menuItems = DUMMY_MENU_ITEMS;
+
+  return (
+    <form>
+      <ul className={`${styles["menu"]}`}>
+        {menuItems.map((item) => (
+          <React.Fragment key={item.id}>
+            <MenuItem
+              name={item.name}
+              description={item.description}
+              price={item.price}
+            />
+            <hr />
+          </React.Fragment>
+        ))}
+      </ul>
+    </form>
+  );
 };
 
 export default Menu;
