@@ -4,8 +4,8 @@ import Cart from "../Cart/Cart";
 
 const NavBar = (props) => {
   return (
-    <nav className={`${styles["nav-bar"]}`}>
-      <ul>
+    <nav>
+      <ul className={`${styles["nav-bar__ul"]}`}>
         <li>
           <Cart
             cartItems={props.cartItems}

@@ -1,7 +1,22 @@
 .cart {
   background-color: #4d1601;
+  display: flex;
+  align-items: baseline;
+  padding: 0.75rem 3rem;
+  border-radius: 4.5rem !important;
 }
 
 .cart__quantity {
   background-color: #b94517;
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
+  margin-left: 1rem;
+}
+
+.cart h2 {
+  margin: 0;
+}
+
+.cart .cart__quantity {
+  border-radius: 1.5rem;
 }
