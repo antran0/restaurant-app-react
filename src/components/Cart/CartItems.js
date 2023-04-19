@@ -68,7 +68,9 @@ const CartItems = (props) => {
             <p>{`$${(Math.round(totalAmount * 100) / 100).toFixed(2)}`}</p>
           </header>
           <div className={`${styles["cart-items__summary-buttons"]}`}>
-            <Button type="button">Close</Button>
+            <Button type="button" onClick={props.onHideCart}>
+              Close
+            </Button>
             <Button type="submit">Order</Button>
           </div>
         </section>
