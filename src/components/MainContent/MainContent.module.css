@@ -3,6 +3,14 @@
   background-color: #2f2f2f;
 }
 
+.main-content__container {
+  background-color: white;
+  width: 80%;
+  margin: 1.5rem auto;
+  padding: 1rem 2rem;
+}
+
 .main-content__description {
   text-align: center;
+  background-color: #383838;
 }

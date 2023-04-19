@@ -13,13 +13,22 @@ const MenuItem = (props) => {
     <li className={`${styles["menu-item"]}`}>
       <hgroup>
         <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <p>${props.price.toFixed(2)}</p>
+        <p className={`${styles["menu-item__description"]}`}>
+          {props.description}
+        </p>
+        <p className={`${styles["menu-item__price"]}`}>
+          ${props.price.toFixed(2)}
+        </p>
       </hgroup>
-      <div>
+      <div className={`${styles["menu-item__form-controls"]}`}>
         <label>Amount</label>
         <input type="number" min={1} max={5} defaultValue="1" ref={amountRef} />
-        <Button onClick={addToCartHandler}>&#43;Add</Button>
+        <Button
+          className={`${styles["menu-item__add-Button"]}`}
+          onClick={addToCartHandler}
+        >
+          &#43; Add
+        </Button>
       </div>
     </li>
   );

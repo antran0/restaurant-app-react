@@ -2,5 +2,9 @@
   color: black;
   background-color: white;
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+}
+
+.menu hr {
+  margin: 1rem auto;
 }

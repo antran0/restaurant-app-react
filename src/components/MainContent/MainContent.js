@@ -6,7 +6,9 @@ import Menu from "../Menu/Menu";
 const MainContent = (props) => {
   return (
     <main className={`${styles["main-content"]}`}>
-      <Card className={`${styles["main-content__description"]}`}>
+      <Card
+        className={`${styles["main-content__description"]} ${styles["main-content__container"]}`}
+      >
         <hgroup>
           <h2>Delicious Food Delivered To You</h2>
           <p>
@@ -19,7 +21,7 @@ const MainContent = (props) => {
           </p>
         </hgroup>
       </Card>
-      <Card>
+      <Card className={`${styles["main-content__container"]}`}>
         <Menu onAddToCart={props.onAddToCart} />
       </Card>
     </main>

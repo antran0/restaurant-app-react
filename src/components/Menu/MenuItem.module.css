@@ -2,3 +2,40 @@
   display: flex;
   justify-content: space-between;
 }
+
+.menu-item__description {
+  font-style: italic;
+  margin: 0;
+}
+
+.menu-item__price {
+  color: #ad5502;
+  font-size: 1.25rem;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.menu-item h3 {
+  margin: 0;
+  margin-bottom: 0.25;
+}
+
+.menu-item label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.menu-item input {
+  width: 3rem;
+}
+
+.menu-item button {
+  display: block;
+  background-color: #8a2b06;
+  border: 1px solid #8a2b06;
+  color: white;
+  margin: 0.5rem 0 0.5rem auto;
+  padding: 0.25rem 2rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+}
