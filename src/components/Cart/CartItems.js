@@ -26,45 +26,52 @@ const CartItems = (props) => {
   return (
     <Card className={`${styles["cart-items"]}`}>
       <form onSubmit={orderHandler}>
-        <div>
+        <div className={styles["cart-items__entries"]}>
           {items.map((item, index) => (
-            <div key={item.menuItem.id}>
-              <div>
-                <h3>{item.menuItem.name}</h3>
+            <React.Fragment key={item.menuItem.id}>
+              <section className={`${styles["cart-items__entry"]}`}>
                 <div>
-                  <div>{`$${item.menuItem.price.toFixed(2)}`}</div>
-                  <div>&times;{item.quantity}</div>
+                  <h3>{item.menuItem.name}</h3>
+                  <div>
+                    <span
+                      className={styles["cart-items__entry__price"]}
+                    >{`$${item.menuItem.price.toFixed(2)}`}</span>
+                    <span className={styles["cart-items__entry__quantity"]}>
+                      &times; {item.quantity}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <Button
-                  type="button"
-                  onClick={(event) => {
-                    decrementItemHandler(index);
-                  }}
-                >
-                  -
-                </Button>
-                <Button
-                  type="button"
-                  onClick={(event) => incrementItemHandler(index)}
-                >
-                  +
-                </Button>
-              </div>
-            </div>
+                <div>
+                  <Button
+                    type="button"
+                    onClick={(event) => {
+                      decrementItemHandler(index);
+                    }}
+                  >
+                    &minus;
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={(event) => incrementItemHandler(index)}
+                  >
+                    &#43;
+                  </Button>
+                </div>
+              </section>
+              <hr />
+            </React.Fragment>
           ))}
         </div>
-        <div>
-          <h3>Total Amount</h3>
-          {`$${(Math.round(totalAmount * 100) / 100).toFixed(2)}`}
-          <Card onClick={props.onHideCart}>
+        <section>
+          <header className={`${styles["cart-items__summary"]}`}>
+            <h3>Total Amount</h3>
+            <p>{`$${(Math.round(totalAmount * 100) / 100).toFixed(2)}`}</p>
+          </header>
+          <div className={`${styles["cart-items__summary-buttons"]}`}>
             <Button type="button">Close</Button>
-          </Card>
-          <Card>
             <Button type="submit">Order</Button>
-          </Card>
-        </div>
+          </div>
+        </section>
       </form>
     </Card>
   );
