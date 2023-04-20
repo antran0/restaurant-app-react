@@ -73,7 +73,8 @@ const CartItems = (props) => {
             <Button type="button" onClick={props.onHideCart}>
               Close
             </Button>
-            <Button type="submit">Order</Button>
+            {items.reduce((sum, cartItem) => sum + cartItem.quantity, 0) >
+              0 && <Button type="submit">Order</Button>}
           </div>
         </section>
       </form>

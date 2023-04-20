@@ -76,17 +76,17 @@
 
 .cart-items__summary-buttons button {
   border: 1px solid #8a2b06;
-  background-color: transparent;
   padding: 0.25rem 1rem;
   border-radius: 1rem;
-}
-
-.cart-items__summary-buttons :first-child {
-  margin-right: 1rem;
-  color: #8a2b06;
 }
 
 .cart-items__summary-buttons :last-child {
   background-color: #8a2b06;
   color: white;
+  margin-left: 1rem;
+}
+
+.cart-items__summary-buttons :first-child {
+  background-color: transparent;
+  color: #8a2b06;
 }
