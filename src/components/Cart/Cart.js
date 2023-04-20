@@ -4,9 +4,12 @@ import styles from "./Cart.module.css";
 import Backdrop from "../UI/Backdrop";
 import Card from "../UI/Card";
 import CartItems from "./CartItems";
+import CartContext from "../../store/cart-context";
 
 const Cart = (props) => {
   const [backdropDisplayed, setBackdropDisplayed] = React.useState(false);
+  const cartContext = React.useContext(CartContext);
+
   const displayCartHandler = () => {
     console.log("Displaying Cart");
     setBackdropDisplayed(true);
@@ -22,7 +25,7 @@ const Cart = (props) => {
       <Card className={`${styles["cart"]}`} onClick={displayCartHandler}>
         <h2>Your Cart</h2>
         <Card className={`${styles["cart__quantity"]}`}>
-          {props.cartItems.reduce(
+          {cartContext.cartItems.reduce(
             (sum, cartItem) => sum + cartItem.quantity,
             0
           )}
@@ -36,16 +39,7 @@ const Cart = (props) => {
         : ""}
       {backdropDisplayed
         ? ReactDOM.createPortal(
-            <CartItems
-              cartItems={props.cartItems}
-              onRemoveFromCart={(menuItem, quantity) =>
-                props.onRemoveFromCart(menuItem, quantity)
-              }
-              onAddToCart={(menuItem, quantity) =>
-                props.onAddToCart(menuItem, quantity)
-              }
-              onHideCart={hideCartHandler}
-            />,
+            <CartItems onHideCart={hideCartHandler} />,
             document.body
           )
         : ""}

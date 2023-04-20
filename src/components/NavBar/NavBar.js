@@ -7,15 +7,7 @@ const NavBar = (props) => {
     <nav>
       <ul className={`${styles["nav-bar__ul"]}`}>
         <li>
-          <Cart
-            cartItems={props.cartItems}
-            onRemoveFromCart={(menuItem, quantity) =>
-              props.onRemoveFromCart(menuItem, quantity)
-            }
-            onAddToCart={(menuItem, quantity) =>
-              props.onAddToCart(menuItem, quantity)
-            }
-          />
+          <Cart />
         </li>
       </ul>
     </nav>

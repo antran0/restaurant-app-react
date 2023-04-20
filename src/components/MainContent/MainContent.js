@@ -22,7 +22,7 @@ const MainContent = (props) => {
         </hgroup>
       </Card>
       <Card className={`${styles["main-content__container"]}`}>
-        <Menu onAddToCart={props.onAddToCart} />
+        <Menu />
       </Card>
     </main>
   );

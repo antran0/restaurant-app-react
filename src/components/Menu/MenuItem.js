@@ -1,12 +1,17 @@
 import React from "react";
 import styles from "./MenuItem.module.css";
 import Button from "../UI/Button";
+import CartContext from "../../store/cart-context";
 
 const MenuItem = (props) => {
   const amountRef = React.useRef();
+  const cartContext = React.useContext(CartContext);
 
   const addToCartHandler = () => {
-    props.onAddToCart(props.menuItems[props.index], amountRef.current.value);
+    cartContext.onAddToCart(
+      props.menuItems[props.index],
+      amountRef.current.value
+    );
   };
 
   return (

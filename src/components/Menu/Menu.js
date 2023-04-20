@@ -43,7 +43,6 @@ const Menu = (props) => {
               price={item.price}
               menuItems={menuItems}
               index={index}
-              onAddToCart={props.onAddToCart}
             />
             <hr />
           </React.Fragment>

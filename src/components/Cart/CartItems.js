@@ -2,20 +2,22 @@ import React from "react";
 import styles from "./CartItems.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
+import CartContext from "../../store/cart-context";
 
 const CartItems = (props) => {
-  const items = props.cartItems;
+  const cartContext = React.useContext(CartContext);
+  const items = cartContext.cartItems;
 
   const totalAmount = items.reduce((sum, currItem) => {
     return sum + currItem.menuItem.price * currItem.quantity;
   }, 0);
 
   const decrementItemHandler = (index) => {
-    props.onRemoveFromCart(items[index].menuItem, 1);
+    cartContext.onRemoveFromCart(items[index].menuItem, 1);
   };
 
   const incrementItemHandler = (index) => {
-    props.onAddToCart(items[index].menuItem, 1);
+    cartContext.onAddToCart(items[index].menuItem, 1);
   };
 
   const orderHandler = (event) => {
