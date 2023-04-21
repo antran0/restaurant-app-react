@@ -31,18 +31,16 @@ const Cart = (props) => {
           )}
         </Card>
       </Card>
-      {backdropDisplayed
-        ? ReactDOM.createPortal(
-            <Backdrop onClick={hideCartHandler} />,
-            document.body
-          )
-        : ""}
-      {backdropDisplayed
-        ? ReactDOM.createPortal(
-            <CartItems onHideCart={hideCartHandler} />,
-            document.body
-          )
-        : ""}
+      {backdropDisplayed &&
+        ReactDOM.createPortal(
+          <Backdrop onClick={hideCartHandler} />,
+          document.body
+        )}
+      {backdropDisplayed &&
+        ReactDOM.createPortal(
+          <CartItems onHideCart={hideCartHandler} />,
+          document.body
+        )}
     </React.Fragment>
   );
 };
