@@ -10,7 +10,6 @@
 }
 
 .order-form__buttons button {
-  display: inline;
   border: 1px solid #8a2b06;
   padding: 0.25rem 1rem;
   border-radius: 1rem;
