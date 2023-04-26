@@ -5,6 +5,7 @@ import Backdrop from "../UI/Backdrop";
 import Card from "../UI/Card";
 import CartItems from "./CartItems";
 import CartContext from "../../store/cart-context";
+import OrderForm from "./OrderForm";
 
 const Cart = (props) => {
   const [backdropDisplayed, setBackdropDisplayed] = React.useState(false);
@@ -38,7 +39,13 @@ const Cart = (props) => {
         )}
       {backdropDisplayed &&
         ReactDOM.createPortal(
-          <CartItems onHideCart={hideCartHandler} />,
+          <Card className={styles["cart-overlay"]}>
+            <CartItems onHideCart={hideCartHandler} />
+            <OrderForm
+              items={cartContext.cartItems}
+              onHideCart={hideCartHandler}
+            />
+          </Card>,
           document.body
         )}
     </React.Fragment>

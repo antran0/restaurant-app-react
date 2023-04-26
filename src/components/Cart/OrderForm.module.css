@@ -1,0 +1,36 @@
+.order-form__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.order-form__buttons {
+  text-align: right;
+}
+
+.order-form__buttons button {
+  display: inline;
+  border: 1px solid #8a2b06;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+}
+
+.order-form__summary h3 {
+  margin: 0;
+}
+
+.order-form__summary p {
+  font-weight: bold;
+}
+
+.order-form__buttons :last-child {
+  background-color: #8a2b06;
+  color: white;
+  margin-left: 1rem;
+}
+
+.order-form__buttons :first-child {
+  background-color: transparent;
+  color: #8a2b06;
+}
